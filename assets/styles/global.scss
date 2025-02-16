@@ -1,0 +1,46 @@
+*,
+*::before,
+*::after {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	background-color: #e7f6ff;
+	font-family: 'Inter', sans-serif;
+}
+
+.container {
+	margin: 0 auto;
+	max-width: 1250px;
+	width: 100%;
+	background-color: #fff;
+	padding: 45px;
+	border-radius: 10px;
+	box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.2);
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+	font-size: inherit;
+}
+
+button {
+	outline: none;
+	border: none;
+	cursor: pointer;
+	background-color: transparent;
+	color: inherit;
+	font-size: inherit;
+}
+
+input[type='search']::-webkit-search-decoration,
+input[type='search']::-webkit-search-cancel-button,
+input[type='search']::-webkit-search-results-button,
+input[type='search']::-webkit-search-results-decoration {
+	display: none;
+}

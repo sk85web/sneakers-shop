@@ -1,0 +1,23 @@
+.header {
+	display: flex;
+	align-items: center;
+	gap: 30px;
+	margin-bottom: 30px;
+
+	&__icon {
+		cursor: pointer;
+		transform: rotate(180deg);
+
+		svg {
+			transition: all 0.2s linear;
+		}
+
+		&:hover svg path {
+			stroke: #474545;
+		}
+
+		&:hover svg {
+			transform: translateX(5px);
+		}
+	}
+}
