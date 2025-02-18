@@ -1,5 +1,5 @@
 <script setup>
-import { DriverHead, CartItemsList } from '#components'
+import { DriverHead, CartItemsList, CartOrder } from '#components'
 </script>
 
 <template>
@@ -7,6 +7,7 @@ import { DriverHead, CartItemsList } from '#components'
 	<div class="cart-display">
 		<DriverHead />
 		<CartItemsList />
+		<CartOrder />
 	</div>
 </template>
 

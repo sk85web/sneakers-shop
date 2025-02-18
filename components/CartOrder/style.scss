@@ -1,0 +1,20 @@
+.order__container {
+	display: flex;
+	gap: 8px;
+	margin-bottom: 20px;
+}
+
+.span__total {
+	font-size: 16px;
+	font-weight: 400;
+}
+
+.span__dashed {
+	border-bottom: dashed 1px #dfdfdf;
+	flex-grow: 1;
+}
+
+.span__price {
+	font-size: 16px;
+	font-weight: 600;
+}

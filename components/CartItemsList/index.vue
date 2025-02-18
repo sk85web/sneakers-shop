@@ -9,6 +9,7 @@ import { CartItem } from '#components'
 		<CartItem />
 	</div>
 </template>
+
 <style scoped>
 @import './style.scss';
 </style>

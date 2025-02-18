@@ -1,40 +1,35 @@
 <script setup>
 import '../Product'
+import SearchInput from '@/components/ui/SearchInput'
+import SelectFilter from '@/components/ui/SelectFilter'
+
+defineProps({
+	items: Array,
+})
+
+const emit = defineEmits(['update-sort', 'update-search-query'])
+
+const handleSortChange = value => emit('update-sort', value)
+const handleSearchQuery = value => emit('update-search-query', value)
 </script>
 
 <template>
 	<div class="header">
 		<h2 class="header__title">Все кроссовки</h2>
-		<input class="header__input" placeholder="Поиск" />
+		<div class="header__actions">
+			<SelectFilter @handle-sort-change="handleSortChange" />
+			<SearchInput @handle-search-query="handleSearchQuery" />
+		</div>
 	</div>
 	<div class="products__list">
 		<Product
-			title="Мужские Кроссовки Nike Blazer Mid Suede"
-			image-src="/sneakers/sneakers-1.jpg"
-			:price="12999"
-			:is-favorite="false"
-			:is-added="false"
-		/>
-		<Product
-			title="Мужские Кроссовки Nike Blazer Mid Suede"
-			image-src="/sneakers/sneakers-2.jpg"
-			:price="12999"
-			:is-favorite="false"
-			:is-added="false"
-		/>
-		<Product
-			title="Мужские Кроссовки Nike Blazer Mid Suede"
-			image-src="/sneakers/sneakers-3.jpg"
-			:price="12999"
-			:is-favorite="false"
-			:is-added="false"
-		/>
-		<Product
-			title="Мужские Кроссовки Nike Blazer Mid Suede"
-			image-src="/sneakers/sneakers-4.jpg"
-			:price="12999"
-			:is-favorite="false"
-			:is-added="false"
+			v-for="item of items"
+			:key="item.id"
+			:title="item.title"
+			:image-src="item.imageUrl"
+			:price="item.price"
+			:is-favorite="item.isFavorite"
+			:is-added="item.isAdded"
 		/>
 	</div>
 </template>

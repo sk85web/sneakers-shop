@@ -1,0 +1,27 @@
+.header__input {
+	position: relative;
+
+	img {
+		position: absolute;
+		left: 18px;
+		top: calc(50% - 7.5px);
+		z-index: 15;
+	}
+
+	input {
+		padding: 13px 18px;
+		padding-left: 46px;
+		border-radius: 10px;
+		border: 1px solid #f3f3f3;
+		font-weight: 400;
+		font-size: 14px;
+		outline: none;
+		position: relative;
+
+		&::placeholder {
+			font-weight: 400;
+			font-size: 14px;
+			color: #c4c4c4;
+		}
+	}
+}
