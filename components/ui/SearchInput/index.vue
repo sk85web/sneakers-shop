@@ -1,12 +1,14 @@
 <script setup>
 import debounce from '@/utils/useDebounce'
-const emit = defineEmits(['handle-search-query'])
+import { useProductsStore } from '~/components/Products/store'
 
-const handleSearchQuery = event => {
-	emit('handle-search-query', event.target.value)
+const store = useProductsStore()
+
+const onSearchQuery = event => {
+	store.onSearchQuery(event.target.value)
 }
 
-const debouncedSearch = debounce(handleSearchQuery, 300)
+const debouncedSearch = debounce(onSearchQuery, 300)
 </script>
 
 <template>

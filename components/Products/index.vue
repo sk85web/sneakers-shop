@@ -2,23 +2,23 @@
 import '../Product'
 import SearchInput from '@/components/ui/SearchInput'
 import SelectFilter from '@/components/ui/SelectFilter'
+import { useProductsStore } from './components/Products/store'
 
-defineProps({
-	items: Array,
+const store = useProductsStore()
+
+const items = computed(() => store.items)
+
+onMounted(() => {
+	store.fetchData()
 })
-
-const emit = defineEmits(['update-sort', 'update-search-query'])
-
-const handleSortChange = value => emit('update-sort', value)
-const handleSearchQuery = value => emit('update-search-query', value)
 </script>
 
 <template>
 	<div class="header">
 		<h2 class="header__title">Все кроссовки</h2>
 		<div class="header__actions">
-			<SelectFilter @handle-sort-change="handleSortChange" />
-			<SearchInput @handle-search-query="handleSearchQuery" />
+			<SelectFilter />
+			<SearchInput />
 		</div>
 	</div>
 	<div class="products__list">
