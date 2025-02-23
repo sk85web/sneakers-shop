@@ -8,8 +8,13 @@ const store = useProductsStore()
 
 const items = computed(() => store.items)
 
-onMounted(() => {
-	store.fetchData()
+const toggleFavorite = id => {
+	store.toggleFavorite(id)
+}
+
+onMounted(async () => {
+	await store.fetchData()
+	await store.fetchFavorites()
 })
 </script>
 
@@ -25,11 +30,13 @@ onMounted(() => {
 		<Product
 			v-for="item of items"
 			:key="item.id"
+			:id="item.id"
 			:title="item.title"
 			:image-src="item.imageUrl"
 			:price="item.price"
 			:is-favorite="item.isFavorite"
 			:is-added="item.isAdded"
+			@addToFavorite="toggleFavorite"
 		/>
 	</div>
 </template>

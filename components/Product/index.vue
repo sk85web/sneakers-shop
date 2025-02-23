@@ -5,24 +5,16 @@ defineProps({
 	price: Number,
 	isFavorite: Boolean,
 	isAdded: Boolean,
+	id: Number,
 })
 
-const isFavorite = ref(false)
-const isAdded = ref(false)
-
-const toggleFavorite = () => {
-	isFavorite.value = !isFavorite.value
-}
-
-const toggleAdded = () => {
-	isAdded.value = !isAdded.value
-}
+const emit = defineEmits(['addToFavorite'])
 </script>
 
 <template>
 	<div class="product__card">
 		<div class="image__block">
-			<button @click.prevent="toggleFavorite">
+			<button @click.prevent="emit('addToFavorite', id)">
 				<img
 					class="image__block-icon"
 					:src="isFavorite ? '/like-2.svg' : '/like-1.svg'"
